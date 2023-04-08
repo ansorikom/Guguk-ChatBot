@@ -94,7 +94,7 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     setvbuf(stdout, nullptr, _IOFBF, 1000);
 
-    string apiKey = "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";
+    string apiKey = "<OPEN AI KEY>";
     MessageQueue queue;
 
     cout << "Selamat Datang di Guguk ChatBot!" << endl;
