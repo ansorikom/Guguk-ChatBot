@@ -67,6 +67,8 @@ string getResponse(string input, string apiKey) {
     curl_easy_setopt(curl, CURLOPT_URL, "https://api.openai.com/v1/completions");
     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonData.c_str());
+    curl_easy_setopt(curl, CURLOPT_POST, 1);
+    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, false);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &responseBuffer);
 
@@ -92,7 +94,7 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     setvbuf(stdout, nullptr, _IOFBF, 1000);
 
-    string apiKey = "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";
+    string apiKey = "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";
     MessageQueue queue;
 
     cout << "Selamat Datang di Guguk ChatBot!" << endl;
@@ -109,7 +111,8 @@ int main() {
 
         if (!queue.isEmpty()) {
             string message = queue.dequeue();
-            cout << "Guguk: " << getResponse(message, apiKey) << endl << endl;
+            if (message == "exit") { cout << endl << "Sampai Jumpa!"; return 0; }
+            cout << endl << "Guguk: " << getResponse(message, apiKey) << endl << endl;
         }
     }
 
