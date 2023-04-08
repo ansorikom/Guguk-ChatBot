@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include "json.hpp"
 #include <curl/curl.h>
@@ -44,7 +43,7 @@ string getResponse(string input, string apiKey) {
         {"model", model},
         {"prompt", input},
         {"temperature", 0.7},
-        {"max_tokens", 256},
+        {"max_tokens", 1024},
         {"top_p", 1},
         {"frequency_penalty", 0},
         {"presence_penalty", 0}
@@ -89,12 +88,11 @@ string getResponse(string input, string apiKey) {
     return text;
 }
 
-
 int main() {
     SetConsoleOutputCP(CP_UTF8);
     setvbuf(stdout, nullptr, _IOFBF, 1000);
 
-    string apiKey = "<OPEN AI KEY>";
+    string apiKey = "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";
     MessageQueue queue;
 
     cout << "Selamat Datang di Guguk ChatBot!" << endl;

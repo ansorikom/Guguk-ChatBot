@@ -40,7 +40,7 @@ git clone https://github.com/ansorikom/Guguk-ChatBot.git
 6. Compile program menggunakan compiler C++ yang anda miliki.
 
 ```bash
-g++ -std=c++11 -lcurl guguk.cpp -o guguk.exe
+g++ -std=c++11 guguk.cpp -o guguk.exe -lcurl 
 ```
 7. Jalankan program dan mulailah berinteraksi dengan Guguk ChatBot.
 
